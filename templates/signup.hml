@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup - Freelance Website</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <h1 class="logo">FreelanceWebsite</h1>
+      <nav class="main-navigation">
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="jobs.html" class="nav-link">Jobs</a></li>
+          <li><a href="proposals.html" class="nav-link">Proposals</a></li>
+          <li><a href="account.html" class="nav-link">My Account</a></li>
+          <li><a href="logout.html" class="nav-link">Logout</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="content">
+    <h2>Signup</h2>
+    <!-- Signup form goes here -->
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <ul class="social-links">
+        <li><a href="#" class="social-link">Facebook</a></li>
+        <li><a href="#" class="social-link">Twitter</a></li>
+        <li><a href="#" class="social-link">LinkedIn</a></li>
+        <li><a href="#" class="social-link">Instagram</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

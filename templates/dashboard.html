@@ -1,0 +1,28 @@
+from flask import Flask, render_template
+import mysql.connector
+
+app = Flask(__name__)
+
+# MySQL database configuration
+db = mysql.connector.connect(
+    host="localhost",
+    user="your_username",
+    password="your_password",
+    database="your_database"
+)
+
+@app.route('/dashboard')
+def dashboard():
+    # Retrieve necessary data from the database (e.g., user's tasks, user's bids)
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM tasks WHERE user_id = %s", (user_id,))
+    tasks = cursor.fetchall()
+
+    cursor.execute("SELECT * FROM bids WHERE user_id = %s", (user_id,))
+    bids = cursor.fetchall()
+
+    # Pass the retrieved data to the dashboard template for rendering
+    return render_template('dashboard.html', tasks=tasks, bids=bids)
+
+if __name__ == '__main__':
+    app.run()

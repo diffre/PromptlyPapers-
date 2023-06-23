@@ -1,0 +1,36 @@
+from flask import Flask, render_template, request, redirect
+import mysql.connector
+
+app = Flask(__name__)
+
+# MySQL database configuration
+db = mysql.connector.connect(
+    host="localhost",
+    user="your_username",
+    password="your_password",
+    database="your_database"
+)
+
+@app.route('/post_task', methods=['GET', 'POST'])
+def post_task():
+    if request.method == 'POST':
+        # Get form data
+        description = request.form['description']
+        budget = request.form['budget']
+        deadline = request.form['deadline']
+
+        # Validate form data
+        if not description or not budget or not deadline:
+            return "Please fill in all the required fields."
+
+        # Insert task details into the database
+        cursor = db.cursor()
+        cursor.execute("INSERT INTO tasks (description, budget, deadline) VALUES (%s, %s, %s)", (description, budget, deadline))
+        db.commit()
+
+        return redirect('/dashboard')  # Redirect to dashboard after successful task posting
+
+    return render_template('post_task.html')  # Render the task posting form
+
+if __name__ == '__main__':
+    app.run()
