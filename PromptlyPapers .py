@@ -6,9 +6,9 @@ app = Flask(__name__)
 # MySQL database configuration
 db = mysql.connector.connect(
     host="localhost",
-    user="your_username",
-    password="your_password",
-    database="your_database"
+    user="",
+    password="",
+    database=""
 )
 
 # Route for the home page
